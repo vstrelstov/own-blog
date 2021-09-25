@@ -60,7 +60,7 @@ export default {
 
       axios
         .put(`${server.baseURL}/blog/edit?postID=${this.id}`, postData)
-        .then(data => {
+        .then(() => {
           router.push({ name: "home" });
         });
     },

@@ -1,6 +1,7 @@
 import { Controller, Get, Res, HttpStatus, Param, NotFoundException, Post, Body, Query, Put, Delete } from '@nestjs/common';
 import { BlogService } from './blog.service';
 import { CreatePostDto } from './dto/create-post.dto';
+import { ValidateObjectId } from '../shared/pipes/validate-object-id.pipes';
 
 @Controller('blog')
 export class BlogController {

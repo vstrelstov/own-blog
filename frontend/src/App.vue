@@ -28,4 +28,20 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
+.card {
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.btn-del {
+  border: 2px solid #e74b1b; 
+  color: #e74b1b;
+}
+
+.btn-del:hover {
+  background-color: #e74b1b;
+  color: white;
+}
+
 </style>

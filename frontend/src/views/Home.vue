@@ -18,9 +18,9 @@
                   <p class="card-text">{{ post.body.length > 75 ? post.body.substring(0, 75) + '...' : post.body }}</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group" style="margin-bottom: 20px;">
-                      <router-link :to="{name: 'Post', params: {id: post._id}}" class="btn btn-sm btn-outline-secondary">View Post </router-link>
-                       <router-link :to="{name: 'Edit', params: {id: post._id}}" class="btn btn-sm btn-outline-secondary">Edit Post </router-link>
-                       <button class="btn btn-sm btn-outline-secondary" v-on:click="deletePost(post._id)">Delete Post</button>
+                      <router-link :to="{name: 'Post', params: {id: post._id}}" class="btn btn-sm btn-outline-secondary">View Post</router-link>
+                       <router-link :to="{name: 'Edit', params: {id: post._id}}" class="btn btn-sm btn-outline-secondary">Edit</router-link>
+                       <button class="btn btn-sm btn-del btn-outline-secondary" v-on:click="deletePost(post._id)">Delete</button>
                     </div>
                   </div>
 

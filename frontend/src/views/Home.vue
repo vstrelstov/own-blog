@@ -2,8 +2,8 @@
     <div>
 
       <div class="text-center">
-        <h1>Nest Blog Tutorial</h1>
-       <p> This is the description of the blog built with Nest.js, Vue.js and MongoDB</p>
+        <h1>Nest Blog</h1>
+       <p> This is the description of my own blog built with Nest.js, Vue.js and MongoDB</p>
 
        <div v-if="posts.length === 0">
             <h2> No post found at the moment </h2>
@@ -15,7 +15,7 @@
               <div class="card mb-4 shadow-sm">
                 <div class="card-body">
                    <h2 class="card-img-top">{{ post.title }}</h2>
-                  <p class="card-text">{{ post.body }}</p>
+                  <p class="card-text">{{ post.body.length > 75 ? post.body.substring(0, 75) + '...' : post.body }}</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group" style="margin-bottom: 20px;">
                       <router-link :to="{name: 'Post', params: {id: post._id}}" class="btn btn-sm btn-outline-secondary">View Post </router-link>

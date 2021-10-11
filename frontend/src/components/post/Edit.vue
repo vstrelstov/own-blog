@@ -55,7 +55,7 @@ export default {
         description: this.post.description,
         body: this.post.body,
         author: this.post.author,
-        date_posted: this.post.date_posted
+        postDate: this.post.postDate
       };
 
       axios

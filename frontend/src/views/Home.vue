@@ -25,7 +25,7 @@
                   </div>
 
                   <div class="card-footer">
-                    <small class="text-muted">Posted on: {{ post.date_posted}}</small><br/>
+                    <small class="text-muted">Posted on: {{ post.postDate}}</small><br/>
                     <small class="text-muted">by: {{ post.author}}</small>
                   </div>
 

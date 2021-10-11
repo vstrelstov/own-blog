@@ -4,7 +4,7 @@
       <h4 style="margin-top: 30px;"><small><button class="btn btn-success" v-on:click="navigate()"> View All Posts </button></small></h4>
       <hr>
       <h2>{{ post.title }}</h2>
-      <h5><span class="glyphicon glyphicon-time"></span> Post by {{post.author}}, {{post.date_posted}}.</h5>
+      <h5><span class="glyphicon glyphicon-time"></span> Post by {{post.author}}, {{post.postDate}}.</h5>
       <p> {{ post.body }} </p>
 
     </div>

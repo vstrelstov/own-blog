@@ -33,17 +33,8 @@ import axios from "axios";
 import { server } from "../../utils/helper";
 import router from "../../router";
 export default {
-  data() {
-    return {
-      title: "",
-      description: "",
-      body: "",
-      author: "",
-      date_posted: ""
-    };
-  },
   created() {
-    this.date_posted = new Date().toLocaleDateString();
+    this.postDate = new Date().toLocaleDateString();
   },
   methods: {
     createPost() {
@@ -52,12 +43,12 @@ export default {
         description: this.description,
         body: this.body,
         author: this.author,
-        date_posted: this.date_posted
+        postDate: this.postDate
       };
       this.__submitToServer(postData);
     },
     __submitToServer(data) {
-      axios.post(`${server.baseURL}/blog/post`, data).then(data => {
+      axios.post(`${server.baseURL}/blog/post`, data).then(() => {
         router.push({ name: "home" });
       });
     }

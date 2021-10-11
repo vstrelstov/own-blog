@@ -6,7 +6,7 @@ import { BlogModule } from './blog/blog.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost/own-blog', { userNewUrlParser: true }),
+    MongooseModule.forRoot('mongodb://localhost:27017/own-blog', { userNewUrlParser: true }),
     BlogModule
   ],
   controllers: [AppController],

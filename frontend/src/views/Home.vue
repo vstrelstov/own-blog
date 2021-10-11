@@ -6,12 +6,12 @@
        <p> This is the description of my own blog built with Nest.js, Vue.js and MongoDB</p>
 
        <div v-if="posts.length === 0">
-            <h2> No post found at the moment </h2>
+            <h2> No posts found at the moment </h2>
         </div>
       </div>
 
         <div class="row">
-           <div class="col-md-4" v-for="post in posts" :key="post._id">
+           <div class="col-md-4" v-for="post in posts.reverse()" :key="post._id">
               <div class="card mb-4 shadow-sm">
                 <div class="card-body">
                    <h2 class="card-img-top">{{ post.title }}</h2>

@@ -11,7 +11,7 @@
       </div>
 
         <div class="row">
-           <div class="col-md-4" v-for="post in posts.reverse()" :key="post._id">
+           <div class="col-md-4" v-for="post in posts" :key="post._id">
               <div class="card mb-4 shadow-sm">
                 <div class="card-body">
                    <h2 class="card-img-top">{{ post.title }}</h2>

@@ -11,7 +11,7 @@ export class BlogService {
 
     async getPosts(): Promise<Post[]> {
         const posts = await this.postModel.find().exec();
-        return posts;
+        return posts.reverse();
     }
 
     async getPost(postId): Promise<Post> {

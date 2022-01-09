@@ -5,7 +5,11 @@ export type User = any;
 @Injectable()
 export class UsersService {
     private readonly users = [
-        // TODO: Add some sample users. They should be stored in the db in the future
+        {
+            userId: 1,
+            username: 'admin',
+            password: 'changeme',
+          },
     ];
 
     async findOne(username: string): Promise<User | undefined> {

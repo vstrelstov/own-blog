@@ -50,7 +50,7 @@ export class BlogController {
         const deletedPost = await this.blogService.deletePost(postID);
         if (!deletedPost) throw new NotFoundException('Post does not exist!');
         return res.status(HttpStatus.OK).json({
-            message: 'Post has been deleted!',
+            message: 'Post has been successfully deleted!',
             post: deletedPost
         })
     }

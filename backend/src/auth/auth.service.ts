@@ -24,20 +24,15 @@ export class AuthService {
         return passwordHash;
     }
 
-    private checkPassword(plaintextPass: string, hash: string): boolean {
-        let result = false;
-
-        this.bcrypt.compare(plaintextPass, hash).then(function(comparisonResult) {
-            result = comparisonResult;
-        })
-
-        return result;
+    private async checkPassword(plaintextPass: string, hash: string): Promise<boolean> {
+        const comparisonResult = await this.bcrypt.compare(plaintextPass, hash);
+        return comparisonResult;
     }
 
     async validateUser(username: string, pass: string): Promise<any> {
         const user = await this.usersService.findOne(username);
         
-        if (user && this.checkPassword(pass, user.password)) {
+        if (user && await this.checkPassword(pass, user.password)) {
             const { password, ...result } = user;
             return result;
         }

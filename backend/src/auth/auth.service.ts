@@ -9,9 +9,35 @@ export class AuthService {
         private jwtService: JwtService
     ) {}
 
+    private bcrypt = require('bcrypt');
+
+    private hashPassword(plaintextPass: string): String {
+        const saltRounds = 10;
+        
+        let passwordHash = '';
+        this.bcrypt.hash(plaintextPass, saltRounds, function(err, hash) {
+            if (!err) {
+                passwordHash = hash;
+            }
+        });
+
+        return passwordHash;
+    }
+
+    private checkPassword(plaintextPass: string, hash: string): boolean {
+        let result = false;
+
+        this.bcrypt.compare(plaintextPass, hash).then(function(comparisonResult) {
+            result = comparisonResult;
+        })
+
+        return result;
+    }
+
     async validateUser(username: string, pass: string): Promise<any> {
         const user = await this.usersService.findOne(username);
-        if (user && user.password === pass) { // TODO: Use bcrypt here
+        
+        if (user && this.checkPassword(pass, user.password)) {
             const { password, ...result } = user;
             return result;
         }

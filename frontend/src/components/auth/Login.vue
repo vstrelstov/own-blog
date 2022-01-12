@@ -24,4 +24,8 @@
 import axios from 'axios';
 import { server } from '../../utils/helper';
 import router from '../../router';
+
+export default {
+    
+}
 </script>

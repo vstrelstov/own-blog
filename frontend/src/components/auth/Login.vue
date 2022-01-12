@@ -2,7 +2,7 @@
     <div>
         <div class="col-md-12 form-wrapper">
             <h2> Log in </h2>
-            <form id="log-in-form" @submit.prevent="login">
+            <form id="log-in-form" @submit.prevent="createLoginModel">
                 <div class="form-group col-md-12">
                     <label for="username">Username</label>
                     <input type="text" id="username" v-model="username" name="username" class="form-control" placeholder="Username" />
@@ -26,6 +26,20 @@ import { server } from '../../utils/helper';
 import router from '../../router';
 
 export default {
-    
+    methods: {
+        createLoginModel() {
+            let user = {
+                username: this.username,
+                password: this.password
+            };
+
+            this.__submitToServer(user);
+        },
+        __submitToServer(user) {
+            axios.post(`${server.baseURL}/auth/login`, user).then(() => {
+                router.push({ name: "home" });
+            })
+        }
+    }
 }
 </script>

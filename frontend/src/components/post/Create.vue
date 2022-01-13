@@ -32,6 +32,8 @@
 import axios from "axios";
 import { server } from "../../utils/helper";
 import router from "../../router";
+import { authHelper } from '../../utils/authHelper';
+
 export default {
   created() {
     this.postDate = new Date().toLocaleDateString();
@@ -48,7 +50,8 @@ export default {
       this.__submitToServer(postData);
     },
     __submitToServer(data) {
-      axios.post(`${server.baseURL}/blog/post`, data).then(() => {
+      const authConfig = authHelper.createAuthHeader();
+      axios.post(`${server.baseURL}/blog/post`, data, authConfig).then(() => {
         router.push({ name: "home" });
       });
     }

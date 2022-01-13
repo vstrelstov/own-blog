@@ -37,9 +37,9 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import { server } from "@/utils/helper";
 import axios from "axios";
+import { authHelper } from '../utils/authHelper';
 
 export default {
   data() {
@@ -57,7 +57,8 @@ export default {
         .then(data => (this.posts = data.data));
     },
     deletePost(id) {
-      axios.delete(`${server.baseURL}/blog/delete?postID=${id}`).then(data => {
+      const authConfig = authHelper.createAuthHeader();
+      axios.delete(`${server.baseURL}/blog/delete?postID=${id}`, authConfig).then(data => {
         console.log(data);
         window.location.reload();
       });

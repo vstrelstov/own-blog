@@ -37,6 +37,8 @@
 import { server } from "../../utils/helper";
 import axios from "axios";
 import router from "../../router";
+import { authHelper } from '../../utils/authHelper';
+
 export default {
   data() {
     return {
@@ -58,8 +60,10 @@ export default {
         postDate: this.post.postDate
       };
 
+      const authConfig = authHelper.createAuthHeader();
+
       axios
-        .put(`${server.baseURL}/blog/edit?postID=${this.id}`, postData)
+        .put(`${server.baseURL}/blog/edit?postID=${this.id}`, postData, authConfig)
         .then(() => {
           router.push({ name: "home" });
         });

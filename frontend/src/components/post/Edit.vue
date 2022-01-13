@@ -20,11 +20,7 @@
                 <label for="body"> Write Content </label>
                 <textarea id="body" cols="30" rows="5" v-model="post.body" class="form-control"></textarea>
             </div>
-            <div class="form-group col-md-12">
-                <label for="author"> Author </label>
-                <input type="text" id="author" v-model="post.author" name="author" class="form-control">
-            </div>
-
+            
             <div class="form-group col-md-4 pull-right">
                 <button class="btn btn-success" type="submit"> Edit Post </button>
             </div>
@@ -56,7 +52,7 @@ export default {
         title: this.post.title,
         description: this.post.description,
         body: this.post.body,
-        author: this.post.author,
+        author: sessionStorage.getItem('username'),
         postDate: this.post.postDate
       };
 

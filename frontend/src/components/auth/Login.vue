@@ -38,6 +38,7 @@ export default {
         __submitToServer(user) {
             axios.post(`${server.baseURL}/auth/login`, user).then((response) => {
                 sessionStorage.setItem('accessToken', response.data.access_token);
+                sessionStorage.setItem('username', this.username);
                 router.push({ name: "home" });
             })
         }

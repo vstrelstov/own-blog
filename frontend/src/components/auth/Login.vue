@@ -5,11 +5,11 @@
             <form id="log-in-form" @submit.prevent="createLoginModel">
                 <div class="form-group col-md-12">
                     <label for="username">Username</label>
-                    <input type="text" id="username" v-model="username" name="username" class="form-control" placeholder="Username" />
+                    <input required type="text" id="username" v-model="username" name="username" class="form-control" placeholder="Username" />
                 </div>
                 <div class="form-group col-md-12">
                     <label for="password">Password</label>
-                    <input type="password" id="password" v-model="password" name="password" class="form-control" />
+                    <input required type="password" id="password" v-model="password" name="password" class="form-control" placeholder="Password" />
                 </div>
 
                 <div class="form-group col-md-4 pull-right">

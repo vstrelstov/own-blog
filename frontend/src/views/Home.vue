@@ -15,7 +15,7 @@
               <div class="card mb-4 shadow-sm">
                 <div class="card-body">
                    <h2 class="card-img-top">{{ post.title }}</h2>
-                  <p class="card-text">{{ post.body.length > 75 ? post.body.substring(0, 75) + '...' : post.body }}</p>
+                  <p class="card-text">{{ post.body.length > maxPostPreviewLength ? post.body.substring(0, maxPostPreviewLength) + '...' : post.body }}</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group" style="margin-bottom: 20px;">
                       <router-link :to="{name: 'Post', params: {id: post._id}}" class="btn btn-sm btn-outline-secondary">View Post</router-link>
@@ -44,6 +44,7 @@ import { authHelper } from '../utils/authHelper';
 export default {
   data() {
     return {
+      maxPostPreviewLength: 75,
       posts: []
     };
   },

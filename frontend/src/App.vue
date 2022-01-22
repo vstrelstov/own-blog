@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/">Home | </router-link>
       <router-link v-if="isAuthorized" to="/create">Create post | </router-link>
       <router-link v-if="isAuthorized" to="/">Logged in as {{username}}</router-link>
       <router-link v-else to="/login">Log in</router-link>

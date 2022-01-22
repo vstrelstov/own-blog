@@ -52,7 +52,7 @@ export default {
         title: this.post.title,
         description: this.post.description,
         body: this.post.body,
-        author: sessionStorage.getItem('username'),
+        author: sessionStorage.getItem(authHelper.usernameStorageKey),
         postDate: this.post.postDate
       };
 

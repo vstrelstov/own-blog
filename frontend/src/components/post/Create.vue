@@ -40,7 +40,7 @@ export default {
         title: this.title,
         description: this.description,
         body: this.body,
-        author: sessionStorage.getItem('username'),
+        author: sessionStorage.getItem(authHelper.usernameStorageKey),
         postDate: this.postDate
       };
       this.__submitToServer(postData);

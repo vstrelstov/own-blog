@@ -24,6 +24,7 @@
 import axios from 'axios';
 import { server } from '../../utils/helper';
 import router from '../../router';
+import { authHelper } from '../../utils/authHelper';
 
 export default {
     methods: {
@@ -37,8 +38,8 @@ export default {
         },
         __submitToServer(user) {
             axios.post(`${server.baseURL}/auth/login`, user).then((response) => {
-                sessionStorage.setItem('accessToken', response.data.access_token);
-                sessionStorage.setItem('username', this.username);
+                sessionStorage.setItem(authHelper.tokenStorageKey, response.data.access_token);
+                sessionStorage.setItem(authHelper.usernameStorageKey, this.username);
                 router.push({ name: "home" });
             })
         }

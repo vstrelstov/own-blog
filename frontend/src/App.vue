@@ -2,12 +2,27 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/create">Create</router-link> | 
-      <router-link to="/login">Log in</router-link>
+      <router-link v-if="isAuthorized" to="/create">Create post | </router-link>
+      <router-link to="/" v-if="isAuthorized" >Logged in as {{username}}</router-link>
+      <router-link to="/login" v-else>Log in</router-link>
     </div>
     <router-view/>
   </div>
 </template>
+
+<script>
+import { authHelper } from './utils/authHelper';
+
+export default {
+  data () {
+    return {
+      isAuthorized: sessionStorage.getItem(authHelper.tokenStorageKey).length > 0,
+      username: sessionStorage.getItem(authHelper.usernameStorageKey)
+    }
+  }
+}
+</script>
+
 
 <style>
 #app {

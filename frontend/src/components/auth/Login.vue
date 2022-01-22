@@ -41,6 +41,7 @@ export default {
                 sessionStorage.setItem(authHelper.tokenStorageKey, response.data.access_token);
                 sessionStorage.setItem(authHelper.usernameStorageKey, this.username);
                 router.push({ name: "home" });
+                window.location.reload();
             })
         }
     }

@@ -3,7 +3,7 @@
     <div id="nav">
       <router-link to="/">Home | </router-link>
       <router-link v-if="isAuthorized" to="/create">Create post | </router-link>
-      <router-link v-if="isAuthorized" to="/">Logged in as {{username}}</router-link>
+      <a v-if="isAuthorized" @click="logout">Logged in as {{username}} (click to log out)</a>
       <router-link v-else to="/login">Log in</router-link>
     </div>
     <router-view/>
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import router from './router';
 import { authHelper } from './utils/authHelper';
 
 export default {
@@ -18,6 +19,14 @@ export default {
     return {
       isAuthorized: sessionStorage.getItem(authHelper.tokenStorageKey)?.length > 0,
       username: sessionStorage.getItem(authHelper.usernameStorageKey)
+    }
+  },
+  methods: {
+    logout() {
+      sessionStorage.removeItem(authHelper.usernameStorageKey);
+      sessionStorage.removeItem(authHelper.tokenStorageKey);
+      router.push({ name: "home" });
+      window.location.reload();
     }
   }
 }

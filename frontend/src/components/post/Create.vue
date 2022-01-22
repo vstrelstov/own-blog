@@ -9,7 +9,7 @@
                </div>
               <div class="form-group col-md-12">
                   <label for="description"> Description </label>
-                  <input required type="text" id="description" v-model="description" name="description" class="form-control" placeholder="Enter Description">
+                  <input type="text" id="description" v-model="description" name="description" class="form-control" placeholder="Enter Description">
               </div>
               <div class="form-group col-md-12">
                   <label for="body"> Write Content </label>

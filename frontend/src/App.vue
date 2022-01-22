@@ -15,7 +15,10 @@ import { authHelper } from './utils/authHelper';
 
 export default {
   data () {
-    return authHelper.getAuthData()
+    return {
+      isAuthorized: sessionStorage.getItem(authHelper.tokenStorageKey)?.length > 0,
+      username: sessionStorage.getItem(authHelper.usernameStorageKey)
+    }
   }
 }
 </script>

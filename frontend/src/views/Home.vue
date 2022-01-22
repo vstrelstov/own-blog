@@ -45,7 +45,9 @@ export default {
   data() {
     return {
       maxPostPreviewLength: 75,
-      posts: []
+      posts: [],
+      isAuthorized: sessionStorage.getItem(authHelper.tokenStorageKey)?.length > 0,
+      username: sessionStorage.getItem(authHelper.usernameStorageKey)
     };
   },
   created() {

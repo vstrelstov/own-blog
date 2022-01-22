@@ -5,15 +5,15 @@
           <form id="create-post-form" @submit.prevent="createPost">
                <div class="form-group col-md-12">
                 <label for="title"> Title </label>
-                <input type="text" id="title" v-model="title" name="title" class="form-control" placeholder="Enter title">
+                <input required type="text" id="title" v-model="title" name="title" class="form-control" placeholder="Enter title">
                </div>
               <div class="form-group col-md-12">
                   <label for="description"> Description </label>
-                  <input type="text" id="description" v-model="description" name="description" class="form-control" placeholder="Enter Description">
+                  <input required type="text" id="description" v-model="description" name="description" class="form-control" placeholder="Enter Description">
               </div>
               <div class="form-group col-md-12">
                   <label for="body"> Write Content </label>
-                  <textarea id="body" cols="30" rows="5" v-model="body" class="form-control"></textarea>
+                  <textarea required id="body" cols="30" rows="5" v-model="body" class="form-control"></textarea>
               </div>
 
               <div class="form-group col-md-4 pull-right">

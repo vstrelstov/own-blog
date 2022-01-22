@@ -11,5 +11,12 @@ export const authHelper = {
         }
 
         return undefined;
+    },
+
+    getAuthData() {
+        return {
+            isAuthorized: sessionStorage.getItem(authHelper.tokenStorageKey).length > 0,
+            username: sessionStorage.getItem(authHelper.usernameStorageKey)
+        }
     }
 }
